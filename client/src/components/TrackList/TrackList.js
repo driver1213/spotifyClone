@@ -98,14 +98,17 @@ const TrackError = styled.span`
 
 const trackList = props => {
   let tracklist;
+  
+  
 
   if (props.tracks) {
-    tracklist = props.tracks.splice(15).map((track, index) => {
+    tracklist = props.tracks.splice(0).map((track, index) => {
       return (
         <TrackList key={index}>
           <Track onClick={() => props.toggleSong(track)}>
             <TrackImage src={track.album.images[0].url} />
-            <TrackNumber>{index}</TrackNumber>
+            <TrackNumber>{index+1}</TrackNumber>
+
             <TrackName>{track.name}</TrackName>
 
             <TrackFavourite onClick={() => props.handleTrack(track)}>

@@ -5,7 +5,8 @@ import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import RecentTracksContainer from './../../containers/RecentTracksContainer';
 import PlayListContainer from '../../containers/PlayListContainer';
-import Drawer from './../UI/Drawer/Darwer';
+import TrackList from './../TrackList/TrackList';
+import Drawer from './../UI/Drawer/Drawer';
 import Sidebar from '../UI/Sidebar/Sidebar';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
@@ -14,14 +15,39 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
+      trackResults: [],
       title: 'Profile',
       description: 'See your most played artists, albums and songs.'
     };
   }
 
-  componentWillReceiveProps(nextProps) {}
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      trackResults: nextProps.tracks.tracksResults
+    });
+  }
 
   render() {
+    let trackSearchResults;
+
+    if (this.state.trackResults.length === 0) {
+      trackSearchResults = '';
+    } else {
+      trackSearchResults = (
+        <section className="main__section">
+          <h3 className="main__title">Search Results</h3>
+          <div className="track__list">
+            <TrackList
+              key={this.props.topTracks}
+              tracks={this.state.trackResults}
+              toggleSong={this.props.toggleSong}
+              favouriteTracks={this.props.tracks.favouriteTracks}
+            />
+          </div>
+        </section>
+      );
+    }
+
     return (
       <div>
         <Sidebar>
@@ -35,6 +61,8 @@ class Profile extends Component {
         />
 
         <main className="main">
+        {trackSearchResults}
+        
           <section className="main__section">
             <h3 className="main__title">Your Top Tracks</h3>
             <div className="track__list">
@@ -60,7 +88,11 @@ class Profile extends Component {
 
 const mapStateToProps = state => {
   return {
-    toggleDrawer: state.tracks.toggleDrawer
+    tracks: state.tracks,
+    trackResults: state.tracks.trackResults,
+    toggleDrawer: state.tracks.toggleDrawer,
+    playingTrack: state.tracks.currentlyPlaying,
+    favouriteTracks: state.tracks.favouriteTracks
   };
 };
 

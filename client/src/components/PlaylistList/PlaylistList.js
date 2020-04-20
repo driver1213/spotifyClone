@@ -34,7 +34,7 @@ const playList = props => {
   let playlistList;
 
   if (props.playlists) {
-    playlistList = props.playlists.splice(5).map((playlist, index) => {
+    playlistList = props.playlists.splice(0).map((playlist, index) => {
       return (
         <PlayListList key={index}>
           <PlayList>

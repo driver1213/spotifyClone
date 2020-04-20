@@ -4,6 +4,12 @@ import * as actions from '../store/actions/index';
 import PlayList from './../components/PlaylistList/PlaylistList';
 
 class PlayListContainer extends Component {
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+      
+  //   }
+  // }
   render() {
     console.log(this.props);
     return <PlayList playlists={this.props.playlists} />;

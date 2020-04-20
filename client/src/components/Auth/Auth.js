@@ -73,7 +73,8 @@ class Auth extends Component {
 
     if (this.state.loggedIn) {
       return null;
-    } else {
+    } 
+    else {
       login = (
         <Modal show={this.state.openModal} modalClosed={this.state.openModal}>
           <LoginContainer>

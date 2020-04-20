@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/index';
-import ArtistList from './../components/ArtistList/ArtistList';
+import ArtistList from '../components/ArtistList/ArtistList';
 
 class TopArtistsContainer extends Component {
   componentDidMount() {

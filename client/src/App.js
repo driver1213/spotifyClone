@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import { injectGlobal } from 'styled-components';
 import 'normalize.css/normalize.css';
+import Home from './components/Pages/Home';
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
 import ArtistPage from './components/Pages/Artist';
 import NoMatchPage from './components/Pages/NoMatch';
+import DiscoverPage from './components/Pages/Discover';
 
 injectGlobal`
   *,
@@ -44,16 +46,18 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <BrowserRouter>
           <div className="App">
             <Switch>
-              <Route exact path="/" component={DashboardPage} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/dashboard" component={DashboardPage} />
               <Route exact path="/profile" component={ProfilePage} />
               <Route exact path="/artist" component={ArtistPage} />
+              <Route exact path="/discover" component={DiscoverPage} />
               <Route component={NoMatchPage} />
             </Switch>
           </div>
-        </Router>
+        </BrowserRouter>
       </Provider>
     );
   }

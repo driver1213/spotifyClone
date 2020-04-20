@@ -1,13 +1,13 @@
 import React from 'react';
-import playIcon from '../../../assets/play.svg';
-import headerHero from '../../../assets/bg.jpg';
+// import playIcon from '../../../assets/play.svg';
+import headerHero from '../../../assets/spotifydance.gif';
 import styled, { css } from 'styled-components';
 
 const Header = styled.div`
   min-height: 40vh;
   background-color: #2a2a72;
   background-image: url(${headerHero});
-  background-size: cover;
+  background-size: 100% 160%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -79,12 +79,12 @@ const header = props => {
     <Header>
       <HeaderTitle>{props.title}</HeaderTitle>
       <HeaderDescription>{props.description}</HeaderDescription>
-      <HeaderButtons>
+      {/* <HeaderButtons>
         <HeaderButton>
           Play all <img alt="Play All Songs" src={playIcon} />
         </HeaderButton>
         <HeaderButton secondary>Mix</HeaderButton>
-      </HeaderButtons>
+      </HeaderButtons> */}
       {props.children}
     </Header>
   );

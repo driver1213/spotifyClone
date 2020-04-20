@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/index';
+import ArtistList from '../components/ArtistList/ArtistList'
 
 class ArtistContainer extends Component {
   componentDidMount() {
     console.log(this.props);
-    this.props.getArtistData('1l2ekx5skC4gJH8djERwh1');
+    this.props.getArtistData('');
 
     // get id out of the url
   }
 
   render() {
     console.log(this.props.artist);
-    return <div>ARTIST</div>;
+    return <ArtistList topArtists={this.props.topArtists} />;
   }
 }
 

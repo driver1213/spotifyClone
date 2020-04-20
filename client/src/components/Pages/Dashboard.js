@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Header from '../../components/UI/Header/Header';
 import { connect } from 'react-redux';
-
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import TopArtistsContainer from './../../containers/TopArtistsContainer';
 import Sidebar from '../UI/Sidebar/Sidebar';
 import TrackList from './../TrackList/TrackList';
-import Drawer from '../UI/Drawer/Darwer';
-import Auth from './../Auth/Auth';
+import Drawer from '../UI/Drawer/Drawer';
 import * as actions from '../../store/actions/index';
+import NowPlaying from '../NowPlaying';
+import Auth from '../Auth/Auth';
 
 class Dashboard extends Component {
   constructor() {
@@ -54,10 +54,10 @@ class Dashboard extends Component {
       <div>
         <Sidebar>
           <TrackSearchContainer />
+        
         </Sidebar>
 
         <Header title={this.state.title} description={this.state.description}>
-          <Auth />
         </Header>
 
         <main className="main">
@@ -71,7 +71,7 @@ class Dashboard extends Component {
           </section>
 
           <section className="main__section">
-            <h3 className="main__title">Albums</h3>
+            <h3 className="main__title">Your Top Artists</h3>
             <TopArtistsContainer />
           </section>
 

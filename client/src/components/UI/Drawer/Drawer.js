@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Controls from './../../Controls/Controls';
-import NowPlayingSpinner from './../NowPlayingSpinner/NowPlayingSpinner';
+import Controls from '../../Controls/Controls';
+import NowPlayingSpinner from '../NowPlayingSpinner/NowPlayingSpinner';
 
 const Drawer = styled.div`
   position: fixed;
